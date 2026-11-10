@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#EF3124">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23EF3124%27/%3E%3Cpath d=%27M32 10 18 44h7l3-8h8l3 8h7L32 10Zm-2 20 2-7 2 7h-4Z%27 fill=%27white%27/%3E%3Crect x=%2718%27 y=%2748%27 width=%2728%27 height=%275%27 fill=%27white%27/%3E%3C/svg%3E">
+<title>Альфа-Бизнес для селлеров</title>
+<meta name="description" content="Интерактивное приложение к защите этапов 3–4: конкуренция, партнёры, позиционирование и бренд Альфа-Бизнеса для селлеров маркетплейсов">
+<link rel="preload" href="fonts/StyreneAWeb-Bold.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preload" href="fonts/StyreneAWeb-Medium.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#main">К содержанию</a>
+
+<header class="hero surface-red" id="top">
+  <div class="wrap">
+    <div class="mark" aria-label="Альфа-Бизнес"><span class="mark__a">А</span><span class="mark__bar"></span></div>
+    <p class="hero__kicker">Инновационный маркетинг, этапы 3–4</p>
+    <h1 class="hero__title"><span class="nowrap">Альфа-Бизнес</span><br>для селлеров</h1>
+    <span class="sig sig--lg" aria-hidden="true"></span>
+    <p class="hero__lead">Конкуренция, партнёры, позиционирование и бренд. Потрогайте схемы из нашей защиты руками.</p>
+    <dl class="stats">
+      <div class="stat"><dt><span data-count="6" data-suffix=" трлн ₽">6 трлн ₽</span></dt><dd>оборот WB и Ozon за 2025</dd></div>
+      <div class="stat"><dt><span data-count="36.4" data-decimals="1" data-prefix="+" data-suffix="%">+36,4%</span></dt><dd>рост оборота за год</dd></div>
+      <div class="stat"><dt><span data-count="97" data-suffix="%">97%</span></dt><dd>продавцов WB работают по FBS</dd></div>
+      <div class="stat"><dt><span data-count="1.26" data-decimals="2" data-suffix=" млн">1,26 млн</span></dt><dd>активных селлеров</dd></div>
+    </dl>
+    <figure class="jtbd">
+      <figcaption>Задача селлера</figcaption>
+      <blockquote>«Не терять деньги в пути и иметь чем оплатить следующую закупку»</blockquote>
+    </figure>
+  </div>
+</header>
+
+<nav class="nav" aria-label="Разделы">
+  <div class="nav__track">
+    <a href="#rings" class="nav__chip">Конкуренты</a>
+    <a href="#price" class="nav__chip">Цена старта</a>
+    <a href="#gap" class="nav__chip">Кассовый разрыв</a>
+    <a href="#path" class="nav__chip">Путь селлера</a>
+    <a href="#partners" class="nav__chip">Партнёры</a>
+    <a href="#map" class="nav__chip">Позиция</a>
+    <a href="#pyramid" class="nav__chip">Пирамида</a>
+    <a href="#identity" class="nav__chip">Айдентика</a>
+    <a href="#meaning" class="nav__chip">Метафора</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<section class="sec surface-red" id="rings" aria-labelledby="h-rings">
+  <div class="wrap">
+    <p class="sec__num">1 Конкуренция</p>
+    <h2 id="h-rings">Кто ещё закрывает задачу селлера</h2>
+    <span class="sig" aria-hidden="true"></span>
+    <p class="hint">Нажмите на кольцо: чем дальше от центра, тем дальше конкурент от банка</p>
+    <div class="rings">
+      <svg class="rings__svg" viewBox="0 0 360 360" role="group" aria-label="Кольца конкуренции" id="ringsSvg"></svg>
+    </div>
+    <div class="seg" role="tablist" aria-label="Тип конкуренции" id="ringTabs"></div>
+    <article class="panel panel--white" id="ringCard" aria-live="polite"></article>
+
+    <h3 class="sub">Стратегическая группа</h3>
+    <p class="hint">Пять признаков отбора. Нажмите на банк</p>
+    <div class="matrix" id="matrix"></div>
+    <p class="matrix__note" id="matrixNote" aria-live="polite"></p>
+  </div>
+</section>
+
+<section class="sec surface-paper" id="price" aria-labelledby="h-price">
+  <div class="wrap">
+    <p class="sec__num sec__num--red">1 Конкуренция</p>
+    <h2 id="h-price">Сколько стоит старт</h2>
+    <span class="sig sig--red" aria-hidden="true"></span>
+    <p class="hint hint--ink">Подвигайте ползунки: сравним стартовые тарифы для ИП</p>
+    <div class="controls">
+      <label class="range">
+        <span class="range__top"><span>Поступления в месяц</span><output id="inOut">700 тыс. ₽</output></span>
+        <input type="range" id="inFlow" min="100000" max="3000000" step="50000" value="700000">
+      </label>
+      <label class="range">
+        <span class="range__top"><span>Платежей в другие банки</span><output id="payOut">8</output></span>
+        <input type="range" id="pays" min="0" max="40" step="1" value="8">
+      </label>
+      <label class="toggle">
+        <input type="checkbox" id="tCard">
+        <span class="toggle__ui" aria-hidden="true"></span>
+        <span>Трачу по карте Т-Банка от 150 000 ₽ в месяц</span>
+      </label>
+    </div>
+    <div class="bars" id="bars" aria-live="polite"></div>
+    <p class="bars__note">ВТБ и СберБизнес считают цену от оборота и выбранных модулей, поэтому в сравнение не входят</p>
+    <div class="panel panel--ink" id="alfaVerdict"></div>
+  </div>
+</section>
+
+<section class="sec surface-red" id="gap" aria-labelledby="h-gap">
+  <div class="wrap">
+    <p class="sec__num">Задача селлера</p>
+    <h2 id="h-gap">Кассовый разрыв перед сезоном</h2>
+    <span class="sig" aria-hidden="true"></span>
+    <p class="hint">Учебная модель: закупаем сейчас, площадка платит позже</p>
+    <div class="controls controls--light">
+      <label class="range range--light">
+        <span class="range__top"><span>Закупка к сезону</span><output id="buyOut"></output></span>
+        <input type="range" id="buy" min="200000" max="5000000" step="100000" value="2000000">
+      </label>
+      <label class="range range--light">
+        <span class="range__top"><span>Свои деньги на счёте</span><output id="ownOut"></output></span>
+        <input type="range" id="own" min="0" max="3000000" step="100000" value="800000">
+      </label>
+      <label class="range range--light">
+        <span class="range__top"><span>Выплата площадки через</span><output id="daysOut"></output></span>
+        <input type="range" id="days" min="7" max="60" step="1" value="28">
+      </label>
+    </div>
+    <div class="chart">
+      <svg viewBox="0 0 340 200" id="gapSvg" role="img" aria-label="Баланс селлера по дням"></svg>
+    </div>
+    <div class="gapsum" aria-live="polite">
+      <div><span class="gapsum__big" id="gapSum">0 ₽</span><span class="gapsum__lbl">не хватает на закупку</span></div>
+      <div><span class="gapsum__big" id="gapDays">0 дней</span><span class="gapsum__lbl">живём в минусе</span></div>
+    </div>
+    <label class="toggle toggle--light">
+      <input type="checkbox" id="limit">
+      <span class="toggle__ui" aria-hidden="true"></span>
+      <span>Лимит до открытия счёта и погашение из выплат площадки</span>
+    </label>
+    <p class="gap__hint" id="gapHint"></p>
+  </div>
+</section>
+
+<section class="sec surface-paper" id="path" aria-labelledby="h-path">
+  <div class="wrap">
+    <p class="sec__num sec__num--red">CJM и партнёры</p>
+    <h2 id="h-path">Путь селлера в банк</h2>
+    <span class="sig sig--red" aria-hidden="true"></span>
+    <p class="hint hint--ink">Кривая эмоций по 8 этапам. Красные точки – точки боли. Нажмите на этап</p>
+    <div class="chart chart--paper">
+      <svg viewBox="0 0 340 170" id="cjmSvg" role="group" aria-label="Кривая эмоций по этапам"></svg>
+    </div>
+    <div class="stepper">
+      <button class="icon-btn" id="prevStage" aria-label="Предыдущий этап">‹</button>
+      <div class="stepper__title" id="stageTitle" aria-live="polite"></div>
+      <button class="icon-btn" id="nextStage" aria-label="Следующий этап">›</button>
+    </div>
+    <article class="stage" id="stageCard"></article>
+  </div>
+</section>
+
+<section class="sec surface-red" id="partners" aria-labelledby="h-partners">
+  <div class="wrap">
+    <p class="sec__num">2 Партнёрская среда</p>
+    <h2 id="h-partners">Шесть типов партнёров</h2>
+    <span class="sig" aria-hidden="true"></span>
+    <p class="hint">Нажмите на узел орбиты</p>
+    <div class="orbit"><svg viewBox="0 0 360 300" id="orbitSvg" role="group" aria-label="Орбита партнёров"></svg></div>
+    <article class="panel panel--white" id="partnerCard" aria-live="polite"></article>
+    <div class="seg seg--light" role="tablist" aria-label="Время" id="whenTabs">
+      <button role="tab" aria-selected="true" data-when="now">Сейчас</button>
+      <button role="tab" aria-selected="false" data-when="next">Дальше</button>
+    </div>
+    <ul class="ledger" id="whenList"></ul>
+  </div>
+</section>
+
+<section class="sec surface-red sec--tight" id="map" aria-labelledby="h-map">
+  <div class="wrap">
+    <p class="sec__num">4 Позиционирование</p>
+    <h2 id="h-map">Где стоит Альфа</h2>
+    <span class="sig" aria-hidden="true"></span>
+    <div class="map"><svg viewBox="0 0 340 300" id="mapSvg" role="group" aria-label="Карта позиционирования"></svg></div>
+    <article class="panel panel--white" id="mapCard" aria-live="polite"></article>
+    <blockquote class="posline">«Банк, который растёт вместе с селлером»</blockquote>
+    <p class="posline__sub">От бесплатной регистрации ИП до оборотного кредита и ВЭД, с личным менеджером на каждом этапе</p>
+  </div>
+</section>
+
+<section class="sec surface-paper" id="pyramid" aria-labelledby="h-pyr">
+  <div class="wrap">
+    <p class="sec__num sec__num--red">5 Пирамида бренда</p>
+    <h2 id="h-pyr">Пирамида читается снизу</h2>
+    <span class="sig sig--red" aria-hidden="true"></span>
+    <p class="hint hint--ink">Нажмите на уровень</p>
+    <div class="pyr" id="pyr"></div>
+    <article class="panel panel--ink" id="pyrCard" aria-live="polite"></article>
+  </div>
+</section>
+
+<section class="sec surface-white" id="identity" aria-labelledby="h-id">
+  <div class="wrap">
+    <p class="sec__num sec__num--red">6 Айдентика</p>
+    <h2 id="h-id">Правило 60-30-10</h2>
+    <span class="sig sig--red" aria-hidden="true"></span>
+    <p class="hint hint--ink">Так распределены цвета на сайте Альфы. Нажмите на долю</p>
+    <div class="ratio" id="ratio" role="group" aria-label="Доли цвета"></div>
+    <p class="ratio__note" id="ratioNote" aria-live="polite"></p>
+    <div class="rivals" aria-label="Цвета конкурентов">
+      <span class="rival"><i style="--c:#21A038"></i>СберБизнес</span>
+      <span class="rival"><i style="--c:#1F4FBF"></i>ВТБ</span>
+      <span class="rival"><i class="split"></i>Т-Бизнес</span>
+      <span class="rival rival--alfa"><i style="--c:#EF3124"></i>Альфа</span>
+    </div>
+    <h3 class="sub sub--ink">Тон: было и стало</h3>
+    <div class="tone">
+      <p class="tone__text" id="toneText">«Информируем вас о поступлении денежных средств»</p>
+      <button class="btn btn--red" id="toneBtn" aria-pressed="false">Переписать по-человечески</button>
+    </div>
+    <h3 class="sub sub--ink">Где айдентика расходится с брендом</h3>
+    <ul class="ledger ledger--ink">
+      <li><b>Селлеров не видно.</b> На странице для бизнеса ни слова о маркетплейсах</li>
+      <li><b>Рост не нарисован.</b> Суть «Рост под контролем» картинкой не показана</li>
+      <li><b>Громкий кэшбэк.</b> «Суперкэшбэк до 100%» спорит с режимом «тишина»</li>
+    </ul>
+  </div>
+</section>
+
+<section class="sec surface-ink" id="meaning" aria-labelledby="h-mean">
+  <div class="wrap">
+    <p class="sec__num sec__num--red">7 Семиотика</p>
+    <h2 id="h-mean">Кто здесь контролирует?</h2>
+    <span class="sig sig--red" aria-hidden="true"></span>
+    <p class="big-phrase">«Рост под контролем»</p>
+    <p class="hint">Ответьте до того, как прочитаете разбор</p>
+    <div class="quiz" id="quiz" role="group" aria-label="Варианты ответа">
+      <button class="quiz__opt" data-r="a">Я сам, селлер</button>
+      <button class="quiz__opt" data-r="b">Банк</button>
+      <button class="quiz__opt" data-r="b">Государство или площадка</button>
+    </div>
+    <div class="reveal" id="reveal" hidden>
+      <p class="reveal__verdict" id="verdict"></p>
+      <div class="readings">
+        <div class="reading reading--a" id="readA">
+          <h3>Прочтение А, задуманное</h3>
+          <dl>
+            <dt>Хозяин контроля</dt><dd>я, селлер</dd>
+            <dt>Смысл</dt><dd>порядок, прозрачность, управляемость</dd>
+            <dt>Эмоция</dt><dd>облегчение, уверенность</dd>
+            <dt>Подталкивает</dt><dd>выплаты и цифры в тексте, живой менеджер, тёплый тон</dd>
+          </dl>
+        </div>
+        <div class="reading reading--b" id="readB">
+          <h3>Прочтение Б, опасное</h3>
+          <dl>
+            <dt>Хозяин контроля</dt><dd>банк, государство, площадка</dd>
+            <dt>Смысл</dt><dd>надзор, ограничения, потолок</dd>
+            <dt>Эмоция</dt><dd>давление, подозрение</dd>
+            <dt>Подталкивает</dt><dd>блокировки и проверки рядом, «режим», сухой тон</dd>
+          </dl>
+        </div>
+      </div>
+      <h3 class="sub">Разберите фразу по словам</h3>
+      <div class="words" id="words"></div>
+      <article class="panel panel--red" id="wordCard" aria-live="polite"></article>
+      <div class="final">
+        <p class="final__lbl">Поэтому снаружи мы называем хозяина контроля</p>
+        <p class="final__phrase">«Рост, который вы контролируете»</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot surface-red">
+  <div class="wrap">
+    <div class="mark mark--sm" aria-hidden="true"><span class="mark__a">А</span><span class="mark__bar"></span></div>
+    <p>Бурцева Алёна, Гоцева Мария, Коренченко Ксения, Тертышникова София, Цуканов Кирилл</p>
+    <p class="foot__small">Инновационный маркетинг. Учебный проект, не официальный сайт Альфа-Банка</p>
+    <a class="btn btn--white" href="#top">Наверх</a>
+  </div>
+</footer>
+
+<script src="app.js" defer></script>
+</body>
+</html>
